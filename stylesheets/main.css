@@ -1,0 +1,86 @@
+@import url(normalize.css);
+@import url(skeleton.css);
+#front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  transition: height 0.3s;
+}
+
+@media (max-width: 450px) {
+  #front {
+    height: 300px;
+  }
+}
+
+#content {
+  transition: margin 0.3s;
+  margin: 50px;
+}
+
+@media (min-width: 1000px) {
+  #content {
+    margin: 125px;
+  }
+}
+
+#content img {
+  width: 100%;
+  max-width: 1000px;
+}
+
+#caribu img {
+  display: inline-block;
+}
+
+#sposure img {
+  display: inline-block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#sposure img.inline {
+  display: inline-block;
+  width: 300px;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+#sposure img.bot {
+  width: 300px;
+}
+
+#chow img {
+  margin-bottom: 20px;
+}
+
+.extra-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 680px) {
+  .extra-images {
+    flex-direction: column;
+  }
+}
+
+.extra-images img {
+  width: 300px;
+  margin: 20px;
+}
+
+#kptech img {
+  display: inline-block;
+}
+
+#kptech img.inline {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  display: inline-block;
+  width: 300px;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}

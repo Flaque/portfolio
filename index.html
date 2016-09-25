@@ -1,0 +1,183 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="stylesheets/main.css" >
+  </head>
+
+  <body>
+    <div id="front">
+      <div class="wrapper">
+        <h1>Evan J. Conrad</h1>
+        <h3>Developer Portfollio</h3>
+      </div>
+    </div>
+
+    <div id="content">
+      <div id="caribu" class="content-piece">
+        <h2>Caribu </h2>
+        <h4>The real-time HTML renderer on your desktop</h4>
+
+        <p>Caribu is my current and most recent project. It's built on
+        <a href="http://electron.atom.io/">Electron</a>, Github's platform for desktop
+        application development, based on Chromium and running on Node.js.
+        We hope that it will allow new
+        developers a path beyond services like codecademy while still scaffolding
+        their education by keeping away the messy alphabet soup of libraries and
+        build services that come with real web development. </p>
+
+        </p>Hopefully, users will
+        be able to experiment with their ideas inside an environment that they're
+        already comfortable in. Since we're an cross-platform desktop
+        application running on macOS, Windows, and Linux, we're able to provide
+        features that other web-based services cannot, like file-saving,
+        keyboard shortcuts, larger screen sizes, and the use of another editor. </p>
+
+        <img src="assets/images/caribu.png">
+
+        <p>Caribu was built in a team with two other people. We take
+        great care to avoid scalability problems that can often occur in
+        Javascript applications. We set up strict file size conventions,
+        require the use of ES6 modules, and encourage the use of documented
+        utilities to avoid repeated code. </p>
+
+        <p> Since we use Electron, we don't need to worry
+        that much about cross-browser support, so we're free to use the newest
+        CSS and JS.</p>
+
+        <h4> What's happening now </h4>
+        <p> <i>As of September 25th, 2016,</i> we are almost done with the first version
+        of Caribu. We only have a couple simple quality-of-life fixes to make.
+        Our goal is to ship it as soon as possible to university students.
+        We want to get opinions of the our core market and try to fix any
+        issues that arise before we release it to the general public. </p>
+
+        <p> We're launching a Node.JS web server on AWS that will work with the Squirrel
+        Auto-updater inside Electron. This will also be the host for our main
+        website where users will be able to buy the application. At the time
+        of writing, the server and its front end are nearly working, but I'm
+        currently working on an authentication issue to allow admins to upload
+        new versions.</p>
+
+      </div>
+
+      <hr>
+
+      <div id="sposure" class='content-piece'>
+
+        <h2> Sposure </h2>
+        <h4> The iOS exposure therapy app </h4>
+
+
+        <p> <img class="inline" src="assets/images/sposure/Full.png">
+          Sposure was an app that my team and I created to help those with
+        PTSD, phobias, and panic disorder. Although it was incredibly interesting
+        to build, and is something we'd like to explore in the future, we eventually
+        realized that it's core concept was flawed and wasn't incredibly functional.
+        That wasn't before we had a solid first version running though!</p>
+
+        <p>The app was built on the back of <a href="http://giphy.com/">Giphy</a>.
+        The user would tap on what they were afraid of, we would query giphy
+        for gifs of that thing, and then we would stream gifs concatenated on
+        to each other for as long as the user held their finger on the screen.
+        The goal was to give the user control over what they were afraid of. It
+        was based on the concept of <a href="https://en.wikipedia.org/wiki/Flooding_(psychology)">
+        flooding therapy </a> which has been shown to be incredibly effective
+        in many cases.
+
+        <h4> Technical Details </h4>
+        <p> We built the app in Swift, Apple's amazing new language for iOS. Like
+        most of our iOS projects, we used <a href="https://github.com/Alamofire/Alamofire">
+        Alamofire </a> for our HTTP requests. We also used
+        <a href="https://github.com/xmartlabs/Eureka"> Eureka </a> for our
+        tableviews. In order to loop and play gifs, I forked
+        <a href="https://github.com/kirualex/SwiftyGif"> SwiftyGif </a> and built
+        in the functionality.</p>
+
+        <h5>Concurrency Model</h5>
+        In order to not block the main UI process while it was running the GIF
+        animation, I set up two concurrent modules that would run network processes
+        in the background to preload gifs before the user got to them in their
+        queue. The first was the <code>GiphyManager</code> that collected
+        URLs from Giphy. The <code>GiphyManager</code> would then ship those URLs
+        into a queue data structure, which could be dequeued by the
+        <code> ImageManager </code> which would run on a separate concurrent queue
+        in the <a href="https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html">
+        GCD</a>. The <code>ImageManager</code> could go grab the image from the URL,
+        compile its data into an image object then ship it into another queue data structure
+        that could be picked up by the main UI thread when the user gets to the
+        end of the gif. <a target="_blank" href="https://img.buzzfeed.com/buzzfeed-static/static/2016-01/14/1/enhanced/webdr06/anigif_enhanced-11836-1452753852-2_preview.gif">
+        It worked a bit like this. </a>
+
+        <div class="extra-images">
+          <img class="bot" src="assets/images/sposure/Intro.png">
+          <img class="bot" src="assets/images/sposure/GameOver.png">
+        </div>
+      </div>
+
+      <hr>
+
+      <div id="kptech">
+        <h2> kpTech</h2>
+        <h4> The golf course update </h4>
+
+        <p> <img class="inline" src="assets/images/kptech/main.png"> KP Tech was a contract that we did for a local member of the Spokane
+        community. We built two iOS applications to be used on a golf course
+        in town. The first was an iPhone app that allowed users to order food
+        from the kitchen in the main building. The second was an iPad app that
+        allowed kitchen staff to see orders coming in and charge account numbers.</p>
+
+
+        <h5> Technical details </h5>
+        <p> We built KP Tech's app in Swift for iOS with a backend running in
+          <a href="http://www.phoenixframework.org/">
+        Phoenix</a>, a web framework built in <a href="http://elixir-lang.org/">
+        Elixir</a>, the Erlang derivative with Ruby-like syntax.</p>
+
+        <h5> Design Work </h5>
+
+        <p> As part of the project, I also built the original version of
+        <a href="http://www.kptech.cc/"> kptech.cc</a>. And, I built a series
+        of logos off their Helvetica font choice. In the photo below, you can
+        see the styles that took a "K" to the final logo.
+       </p>
+
+        <img class="small" src="assets/images/kptech/KPTech.png">
+
+      </div>
+
+      <hr>
+
+      <div id="chow">
+        <h2> Chow Chow</h2>
+        <h4> The "actual" dining hall menu </h4>
+
+        <p> We built Chow Chow as a way to help students at Gonzaga
+        find out what was actually at the dining hall that day. We often found
+        the current website did not actually have accurate information. It also
+        didn't tell you how long you would have to wait or how good the food
+        was that day.</p>
+
+        <p> Users could post about meals that were available, the food quality,
+        and the amount the had to wait.</p>
+
+        <p>We learned a hard lesson about how difficult it is to build a crowd-sourced
+          application. We figured that as long as we were going in everyday and
+          posting meals, other people would eventually do so as well. Unfortunately,
+          it became exceedingly difficult to constantly have to have the menu updated
+          and also report on line times and food quality for everything the
+          dining hall was offering.
+       </p>
+
+        <img src="assets/images/chow.png">
+
+        <h4> Technical Details </h4>
+        <p> We built Chow Chow in Swift for iOS. We used Alamofire for our HTTP
+        requests and a Phoenix/Elixir backend. </p>
+
+      </div>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
