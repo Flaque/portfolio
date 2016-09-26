@@ -1,5 +1,9 @@
 @import url(normalize.css);
 @import url(skeleton.css);
+body {
+  padding: 50px;
+}
+
 #front {
   display: flex;
   justify-content: center;
@@ -15,14 +19,9 @@
 }
 
 #content {
-  transition: margin 0.3s;
-  margin: 50px;
-}
-
-@media (min-width: 1000px) {
-  #content {
-    margin: 125px;
-  }
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;
 }
 
 #content img {
@@ -31,7 +30,8 @@
 }
 
 #caribu img {
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
 }
 
 #sposure img {
@@ -53,12 +53,16 @@
 
 #chow img {
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .extra-images {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 @media (max-width: 680px) {
