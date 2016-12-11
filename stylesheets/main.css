@@ -101,3 +101,12 @@ h2 a {
   color: #222;
   text-decoration: none;
 }
+
+.video-wrapper {
+  text-align: center;
+}
+
+.video-wrapper iframe {
+  display: inline-block;
+  margin-bottom: 25px;
+}

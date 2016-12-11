@@ -112,3 +112,11 @@ h2 {
     text-decoration: none;
   }
 }
+
+.video-wrapper {
+  text-align: center;
+  iframe {
+    display: inline-block;
+    margin-bottom: 25px;
+  }
+}
